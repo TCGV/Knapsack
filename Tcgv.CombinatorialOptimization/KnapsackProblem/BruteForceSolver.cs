@@ -20,78 +20,56 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
         {
             this.bags = bags;
             this.capacity = capacity;
+            this.quantities = new int [bags.Length];
+            this.weight = 0;
+            this.value = 0;
         }
 
         public int Solve()
         {
             var max = -1;
-            var quantities = new int[bags.Length];
 
-            while (!IsLastCombination(quantities))
+            while (Increase(quantities))
             {
-                Increase(quantities);
-                if (IsValidCombination(quantities))
+                if (this.weight <= capacity)
                 {
-                    var r = CalculateValue(quantities);
-                    max = Math.Max(r, max);
+                    max = Math.Max(this.value, max);
                 }
             }
 
             return max;
         }
 
-        private bool IsLastCombination(int[] quantities)
+        private bool Increase(int[] quantities)
         {
-            for (var i = 0; i < bags.Length; i++)
-            {
-                if (quantities[i] < capacity / bags[i].Weight)
-                    return false;
-            }
-            return true;
-        }
+            var increased = false;
 
-        private void Increase(int[] quantities)
-        {
             for (var i = 0; i < bags.Length; i++)
             {
                 if (quantities[i] < capacity / bags[i].Weight)
                 {
                     quantities[i]++;
+                    weight += bags[i].Weight;
+                    value += bags[i].Value;
+                    increased = true;
                     break;
                 }
                 else
                 {
+                    weight -= bags[i].Weight * quantities[i];
+                    value -= bags[i].Value * quantities[i];
                     quantities[i] = 0;
                 }
             }
-        }
 
-        private bool IsValidCombination(int[] quantities)
-        {
-            return CalculateWeight(quantities) <= capacity;
-        }
-
-        private int CalculateValue(int[] quantities)
-        {
-            var sum = 0;
-            for (var i = 0; i < bags.Length; i++)
-            {
-                sum += bags[i].Value * quantities[i];
-            }
-            return sum;
-        }
-
-        private int CalculateWeight(int[] quantities)
-        {
-            var sum = 0;
-            for (var i = 0; i < bags.Length; i++)
-            {
-                sum += bags[i].Weight * quantities[i];
-            }
-            return sum;
+            return increased;
         }
 
         private Bag[] bags;
         private int capacity;
+
+        private int[] quantities;
+        private int weight;
+        private int value;
     }
 }
