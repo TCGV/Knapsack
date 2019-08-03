@@ -5,12 +5,12 @@ Brute force implementations for solving the [Knapsack problem](https://en.wikipe
 ## Performance
 
 **IterativeBruteForceSolver**
-* Time complexity is O(c ^ n)
-* Space complexity is O(n)
+* Time complexity is `O(c ^ n)`
+* Space complexity is `O(n)`
 
 **RecursiveBruteForceSolver**
-* Time complexity is O(c * n)
-* Space complexity is O(c)
+* Time complexity is `O(c * n)`
+* Space complexity is `O(c)`
 
 **Where**
 * `c` is the knapsack capacity
