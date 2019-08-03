@@ -2,32 +2,13 @@
 
 namespace Tcgv.CombinatorialOptimization.KnapsackProblem
 {
-    // Time complexity is O(2 ^ n)
-    // Space complexity is O(m)
-    //
-    // Where "n" is bounded by the minimum and maximum values for
-    // each bag relation of: Capacity / Bag Weight
-    //
-    // Where "m" is the length of the "bags" array, i.e., it's the
-    // number of different kind of bags available for solving the
-    // problem
-    //
-    // Note: This is a naive, inneficient solution to the problem,
-    // but an iterative one, that doesn't rely on recursion
-    public class BruteForceSolver
+    public class IterativeBruteForceSolver : KnapsackSolver
     {
-        public BruteForceSolver(Bag[] bags, int capacity)
-        {
-            this.bags = bags;
-            this.capacity = capacity;
-            this.quantities = new int [bags.Length];
-            this.weight = 0;
-            this.value = 0;
-        }
-
-        public int Solve()
+        public int Solve(Bag[] bags, int capacity)
         {
             var max = -1;
+
+            SetVariables(bags, capacity);
 
             while (Increase(quantities))
             {
@@ -38,6 +19,14 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
             }
 
             return max;
+        }
+        private void SetVariables(Bag[] bags, int capacity)
+        {
+            this.bags = bags;
+            this.capacity = capacity;
+            this.quantities = new int [bags.Length];
+            this.weight = 0;
+            this.value = 0;
         }
 
         private bool Increase(int[] quantities)

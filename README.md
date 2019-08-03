@@ -1,15 +1,21 @@
 # Knapsack
 
-Simple iterative brute force implementation for solving the [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem).
+Brute force implementations for solving the [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem).
 
 ## Performance
 
-* Time complexity is O(2 ^ n)
-* Space complexity is O(m)
+**IterativeBruteForceSolver**
+* Time complexity is O(c ^ n)
+* Space complexity is O(n)
 
-Where "n" is bounded by the minimum and maximum values for each bag relation of `Capacity / Bag Weight`, and "m" is the length of the `bags` array, i.e., the number of different kinds of bags available for solving the problem.
+**RecursiveBruteForceSolver**
+* Time complexity is O(c * n)
+* Space complexity is O(c)
 
-Note: This is a naive, inneficient solution to the problem, but an iterative one, that doesn't rely on recursion.
+**Where**
+* `c` is the knapsack capacity
+* `n` is the length of the `bags` array, i.e., the number of different kinds of bags available for solving the problem
+
 
 ## Licensing
 
