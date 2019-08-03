@@ -15,10 +15,10 @@ namespace Tcgv.CombinatorialOptimization.UnitTest.KnapsackProblem
         }
 
         [TestMethod]
-        public void RecursiveBruteForceSolverTest()
+        public void RecursiveDynamicSolverTest()
         {
-            DataSet_1_Test(new RecursiveBruteForceSolver());
-            DataSet_2_Test(new RecursiveBruteForceSolver());
+            DataSet_1_Test(new RecursiveDynamicSolver());
+            DataSet_2_Test(new RecursiveDynamicSolver());
         }
 
         private void DataSet_1_Test(KnapsackSolver solver)

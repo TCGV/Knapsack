@@ -1,6 +1,6 @@
 # Knapsack
 
-Brute force implementations for solving the [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem).
+Solvers for the [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem).
 
 ## Performance
 
@@ -8,7 +8,7 @@ Brute force implementations for solving the [Knapsack problem](https://en.wikipe
 * Time complexity is `O(c ^ n)`
 * Space complexity is `O(n)`
 
-**RecursiveBruteForceSolver**
+**RecursiveDynamicSolver**
 * Time complexity is `O(c * n)`
 * Space complexity is `O(c)`
 

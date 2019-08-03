@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Tcgv.CombinatorialOptimization.KnapsackProblem
 {
-    public class RecursiveBruteForceSolver : KnapsackSolver
+    public class RecursiveDynamicSolver : KnapsackSolver
     {
-        public RecursiveBruteForceSolver()
+        public RecursiveDynamicSolver()
         {
             map = new Dictionary<int, int>();
         }
