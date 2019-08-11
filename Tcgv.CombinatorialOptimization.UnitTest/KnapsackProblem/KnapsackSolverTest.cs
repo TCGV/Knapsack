@@ -23,36 +23,36 @@ namespace Tcgv.CombinatorialOptimization.UnitTest.KnapsackProblem
 
         private void DataSet_1_Test(KnapsackSolver solver)
         {
-            var bags = new[] {
-                new Bag(value: 175, weight: 65),
-                new Bag(value: 170, weight: 60),
-                new Bag(value: 230, weight: 80),
-                new Bag(value: 260, weight: 90),
-                new Bag(value: 690, weight: 210)
+            var items = new[] {
+                new Item(value: 175, weight: 65),
+                new Item(value: 170, weight: 60),
+                new Item(value: 230, weight: 80),
+                new Item(value: 260, weight: 90),
+                new Item(value: 690, weight: 210)
             };
 
             var capacity = 760;
             var expected = 2420;
-            var actual = solver.Solve(bags, capacity);
+            var actual = solver.Solve(items, capacity);
 
             Assert.AreEqual(expected, actual);
         }
 
         private void DataSet_2_Test(KnapsackSolver solver)
         {
-            var bags = new[] {
-                new Bag(value: 25, weight: 20),
-                new Bag(value: 63, weight: 32),
-                new Bag(value: 70, weight: 35),
-                new Bag(value: 61, weight: 50),
-                new Bag(value: 89, weight: 48),
-                new Bag(value: 99, weight: 50),
-                new Bag(value: 103, weight: 51)
+            var items = new[] {
+                new Item(value: 25, weight: 20),
+                new Item(value: 63, weight: 32),
+                new Item(value: 70, weight: 35),
+                new Item(value: 61, weight: 50),
+                new Item(value: 89, weight: 48),
+                new Item(value: 99, weight: 50),
+                new Item(value: 103, weight: 51)
             };
 
             var capacity = 120;
             var expected = 239;
-            var actual = solver.Solve(bags, capacity);
+            var actual = solver.Solve(items, capacity);
 
             Assert.AreEqual(expected, actual);
         }

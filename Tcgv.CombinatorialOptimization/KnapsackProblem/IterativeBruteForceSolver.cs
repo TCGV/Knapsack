@@ -4,11 +4,11 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
 {
     public class IterativeBruteForceSolver : KnapsackSolver
     {
-        public int Solve(Bag[] bags, int capacity)
+        public int Solve(Item[] items, int capacity)
         {
             var max = -1;
 
-            SetVariables(bags, capacity);
+            SetVariables(items, capacity);
 
             while (Increase(quantities))
             {
@@ -20,11 +20,11 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
 
             return max;
         }
-        private void SetVariables(Bag[] bags, int capacity)
+        private void SetVariables(Item[] items, int capacity)
         {
-            this.bags = bags;
+            this.items = items;
             this.capacity = capacity;
-            this.quantities = new int [bags.Length];
+            this.quantities = new int [items.Length];
             this.weight = 0;
             this.value = 0;
         }
@@ -33,20 +33,20 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
         {
             var increased = false;
 
-            for (var i = 0; i < bags.Length; i++)
+            for (var i = 0; i < items.Length; i++)
             {
-                if (quantities[i] < capacity / bags[i].Weight)
+                if (quantities[i] < capacity / items[i].Weight)
                 {
                     quantities[i]++;
-                    weight += bags[i].Weight;
-                    value += bags[i].Value;
+                    weight += items[i].Weight;
+                    value += items[i].Value;
                     increased = true;
                     break;
                 }
                 else
                 {
-                    weight -= bags[i].Weight * quantities[i];
-                    value -= bags[i].Value * quantities[i];
+                    weight -= items[i].Weight * quantities[i];
+                    value -= items[i].Value * quantities[i];
                     quantities[i] = 0;
                 }
             }
@@ -54,7 +54,7 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
             return increased;
         }
 
-        private Bag[] bags;
+        private Item[] items;
         private int capacity;
 
         private int[] quantities;

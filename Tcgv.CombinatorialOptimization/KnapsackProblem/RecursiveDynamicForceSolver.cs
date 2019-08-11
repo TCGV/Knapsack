@@ -10,19 +10,19 @@ namespace Tcgv.CombinatorialOptimization.KnapsackProblem
             map = new Dictionary<int, int>();
         }
 
-        public int Solve(Bag[] bags, int capacity)
+        public int Solve(Item[] items, int capacity)
         {
             if (map.ContainsKey(capacity))
                 return map[capacity];
 
             var max = 0;
             
-            foreach (var bag in bags)
+            foreach (var item in items)
             {
-                var c = capacity - bag.Weight;
+                var c = capacity - item.Weight;
                 if (c >= 0)
                 {
-                    var m = Solve(bags, c) + bag.Value;
+                    var m = Solve(items, c) + item.Value;
                     max = Math.Max(m, max);
                 }
             }

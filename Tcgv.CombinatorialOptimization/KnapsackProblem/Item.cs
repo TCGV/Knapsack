@@ -1,8 +1,8 @@
 namespace Tcgv.CombinatorialOptimization.KnapsackProblem
 {
-    public class Bag
+    public class Item
     {
-        public Bag(int value, int weight)
+        public Item(int value, int weight)
         {
             this.Value = value;
             this.Weight = weight;
