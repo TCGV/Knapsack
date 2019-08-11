@@ -14,7 +14,7 @@ Solvers for the Unbounded [Knapsack problem](https://en.wikipedia.org/wiki/Knaps
 
 **Where**
 * `c` is the knapsack capacity
-* `n` is the length of the `bags` array, i.e., the number of different kinds of bags available for solving the problem
+* `n` is the length of the `items` array, i.e., the number of different kinds of items available for solving the problem
 
 
 ## Licensing
