@@ -1,6 +1,6 @@
 # Knapsack
 
-Solvers for the [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem).
+Solvers for the Unbounded [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) (UKP).
 
 ## Performance
 
