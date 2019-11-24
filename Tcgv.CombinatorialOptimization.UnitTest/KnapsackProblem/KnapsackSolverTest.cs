@@ -5,7 +5,7 @@ namespace Tcgv.CombinatorialOptimization.UnitTest.KnapsackProblem
 {
     // Data sets extracted from http://vuir.vu.edu.au/17924/1/IYER_1997compressed.pdf
     [TestClass]
-    public class BruteForceSolverTest
+    public class KnapsackSolverTest
     {        
         [TestMethod]
         public void IterativeBruteForceSolverTest()
